@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         preserveLineBreaks: false
       },
       files: {
-        src: 'min/index.html',
+        src: 'copy/index.html',
         dest: 'min/index.html'
       }
     },
@@ -39,7 +39,7 @@ module.exports = function (grunt) {
     copy: {
       html: {
         src: './index.html',
-        dest: './copy/index.html'
+        dest: 'copy/index.html'
       }
     },
     concat: {
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       html: ['min/index.html']
     },
     clean: {
-      int: ['copy/index.html','.tmp']
+      int: ['concat/bundle.js','concat/bundle.css','.tmp']
     }
   });
 
