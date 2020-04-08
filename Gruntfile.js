@@ -45,18 +45,18 @@ module.exports = function (grunt) {
     concat: {
       js: {
         src: ['js/*.js'],
-        dest: 'min/bundle.js'
+        dest: 'concat/bundle.js'
       },
       css: {
         src: ['css/*.css'],
-        dest: 'min/bundle.css'
+        dest: 'concat/bundle.css'
       }
     },
     uglify: {
-      'min/bundle.min.js': 'min/bundle.js'
+      'min/bundle.min.js': 'concat/bundle.js'
     },
     cssmin: {
-      'min/bundle.min.css': 'min/bundle.css'
+      'min/bundle.min.css': 'concat/bundle.css'
     },
     useminPrepare: {
       html: 'index.html',
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       html: ['min/index.html']
     },
     clean: {
-      end: ['min/bundle.css', 'min/bundle.js', '.tmp']
+      int: ['copy/index.html','.tmp']
     }
   });
 
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('lint', ['htmlhint', 'csslint', 'eslint']);
-  grunt.registerTask('build', ['copy:html', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin', 'htmlmin', 'imagemin', 'clean:end']);
+  grunt.registerTask('com', ['copy', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin', 'htmlmin', 'imagemin','copy:int']);
 
 
 };
