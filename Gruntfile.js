@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       html: ['min/index.html']
     },
     clean: {
-      int: ['concat/bundle.js','concat/bundle.css','.tmp']
+      int: ['concat','.tmp']
     }
   });
 
@@ -85,7 +85,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('lint', ['htmlhint', 'csslint', 'eslint']);
-  grunt.registerTask('com', ['copy', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin', 'htmlmin', 'imagemin','copy:int']);
+  grunt.registerTask('com', ['copy:html', 'useminPrepare', 'concat', 'uglify', 'cssmin','usemin', 'htmlmin', 'imagemin', 'clean:int']);
 
 
 };
