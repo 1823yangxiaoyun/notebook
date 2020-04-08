@@ -1,0 +1,21 @@
+{
+  "env": {
+    "browser": true,
+    "jquery": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "no-console": [
+      "error",
+      { "allow": ["error"] }
+    ]
+  }
+}
