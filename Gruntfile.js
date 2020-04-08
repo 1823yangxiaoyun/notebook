@@ -25,7 +25,7 @@ module.exports = function (grunt) {
         preserveLineBreaks: false
       },
       files: {
-        src: './index.html',
+        src: 'min/index.html',
         dest: 'min/index.html'
       }
     },
