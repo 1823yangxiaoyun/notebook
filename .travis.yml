@@ -4,7 +4,7 @@ node_js:
 
 after_script:
   - grunt lint
-  - grunt com
+  - grunt build
   - cd ./min
   - git init
   - git config user.name "${USER_NAME}"
