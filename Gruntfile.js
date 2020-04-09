@@ -25,38 +25,38 @@ module.exports = function (grunt) {
         preserveLineBreaks: false
       },
       files: {
-        src: 'copy/index.html',
+        src: 'min/index.html',
         dest: 'min/index.html'
       }
     },
     imagemin: {
       files: {
         expand: true,
-        src: ['./images/*.{png,jpg,gif}'],
+        src: ['./images/*.png'],
         dest: 'min/'
       }
     },
     copy: {
       html: {
         src: './index.html',
-        dest: 'copy/index.html'
+        dest: './min/index.html'
       }
     },
     concat: {
       js: {
         src: ['js/*.js'],
-        dest: 'concat/bundle.js'
+        dest: 'min/bundle.js'
       },
       css: {
         src: ['css/*.css'],
-        dest: 'concat/bundle.css'
+        dest: 'min/bundle.css'
       }
     },
     uglify: {
-      'min/bundle.min.js': 'concat/bundle.js'
+      'min/bundle.min.js': 'min/bundle.js'
     },
     cssmin: {
-      'min/bundle.min.css': 'concat/bundle.css'
+      'min/bundle.min.css': 'min/bundle.css'
     },
     useminPrepare: {
       html: 'index.html',
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
       html: ['min/index.html']
     },
     clean: {
-      int: ['concat','.tmp']
+      end: ['min/bundle.css', 'min/bundle.js', '.tmp']
     }
   });
 
@@ -85,7 +85,5 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-usemin');
 
   grunt.registerTask('lint', ['htmlhint', 'csslint', 'eslint']);
-  grunt.registerTask('com', ['copy:html', 'useminPrepare', 'concat', 'uglify', 'cssmin','usemin', 'htmlmin', 'imagemin', 'clean:int']);
-
-
+  grunt.registerTask('build', ['copy:html', 'useminPrepare', 'concat', 'uglify', 'cssmin', 'usemin', 'htmlmin', 'imagemin', 'clean:end']);
 };
